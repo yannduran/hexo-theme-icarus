@@ -20,7 +20,7 @@ customize:
         author: Feng Lu
         author_title: Developer, Architect and Evangelist
         location: Oslo Area, Norway
-#       follow: https://github.com/ppoffice/
+        follow: https://github.com/linkcd/
     highlight: monokai
     sidebar: right # sidebar position, options: left, right
     thumbnail: false # enable posts thumbnail, options: true, false
