@@ -18,15 +18,15 @@ customize:
         avatar: /images/avatar.jpg
         gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
         author: Feng Lu
-        author_title: Developer, Architect and Evangelist
+        author_title: Developer, Architect and Technical Evangelist
         location: Oslo Area, Norway
         follow: https://github.com/linkcd/
     highlight: monokai
     sidebar: right # sidebar position, options: left, right
     thumbnail: false # enable posts thumbnail, options: true, false
-    favicon: # path to favicon
+    favicon: /images/favicon.png # path to favicon
     social_links:
-        linkedin: https://no.linkedin.com/in/linkcd
+        linkedin: https://www.linkedin.com/in/linkcd
 #        github: http://github.com/ppoffice/hexo-theme-icarus
 #        twitter: /
 #        facebook: /
