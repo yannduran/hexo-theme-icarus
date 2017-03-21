@@ -1,7 +1,7 @@
-<% if (theme.comment.disqus) { %>
+<% if (theme.comments.disqus) { %>
     <%- partial('comment/disqus', { script: true }) %>
-<% } else if (theme.comment.duoshuo) { %>
+<% } else if (theme.comments.duoshuo) { %>
     <%- partial('comment/duoshuo', { script: true }) %>
-<% } else if (theme.comment.youyan) { %>
+<% } else if (theme.comments.youyan) { %>
     <%- partial('comment/youyan', { script: true }) %>
 <% } %>

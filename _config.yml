@@ -1,46 +1,46 @@
 # Menus
 menu:
-  Home: .
+  Home: /
   Archives: archives
 # Categories: categories
 # Tags: tags
-# About: about
+  About: about
 
-# Customize
-customize:
-    logo:
-        enabled: true
-        width: 40
-        height: 40
-        url: images/logo.png
-    profile:
-        enabled: true # Whether to show profile bar
-        avatar: /images/avatar.jpg
-        gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
-        author: Feng Lu
-        author_title: Developer, Architect and Technical Evangelist
-        location: Oslo Area, Norway
-        follow: https://github.com/linkcd/
-    highlight: monokai
-    sidebar: right # sidebar position, options: left, right
-    thumbnail: false # enable posts thumbnail, options: true, false
-    favicon: /images/favicon.png # path to favicon
-    social_links:
-        linkedin: https://www.linkedin.com/in/linkcd
-#        github: http://github.com/ppoffice/hexo-theme-icarus
-#        twitter: /
-#        facebook: /
-#        dribbble: /
-        rss: /atom.xml
-    social_link_tooltip: true # enable the social link tooltip, options: true, false
+logo:
+    enabled: true
+    width: 40
+    height: 40
+    url: images/logo.jpg
+banner: images/banner.jpg
+profile:
+    enabled: true # Whether to show profile bar
+    avatar: images/logo.jpg
+    gravatar: yann@luminous-software.solutions # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
+    author: Yann Duran
+    author_position: Senior Software Developer
+    location: Melbourne, Australia
+    follow: https://github.com/luminous-software
+highlight: monokai
+sidebar: right # options: left, right
+thumbnail: false # enable posts thumbnail, options: true, false
+favicon: /favicon.png # path to favicon
+social_links:
+    linkedin: https://www.linkedin.com/in/yannduran
+    github: http://github.com/yannduran
+    twitter: http://twitter.com/lumiinus
+    facebook: http://facebook.com/yannduran
+    stackoverflow: http://stackoverflow.com/users/281489
+#    dribbble: /
+    rss: /atom.xml
+social_link_tooltip: false
 
 # Widgets
 widgets:
     - recent_posts
-    - category
-    - archive
-#   - tag
     - tagcloud
+    - archive
+    - category
+#   - tag
 #   - links
 
 # Search
@@ -49,9 +49,9 @@ search:
     swiftype: # enter swiftype install key here
     baidu: false # you need to disable other search engines to use Baidu search, options: true, false
 
-# Comment
-comment:
-    disqus: linkcd # enter disqus shortname here
+# Comments
+comments:
+    disqus: luminous-software-blog # enter disqus shortname here
     duoshuo: # enter duoshuo shortname here
     youyan: # enter youyan uid here
 
@@ -60,9 +60,9 @@ share: default # options: jiathis, bdshare, addtoany, default
 
 # Plugins
 plugins:
-    lightgallery: true # options: true, false
-    justifiedgallery: true # options: true, false
-    google_analytics:  UA-81925648-1 # enter the tracking ID for your Google Analytics
+    lightgallery: true
+    justifiedgallery: true
+    google_analytics: # enter the tracking ID for your Google Analytics
     google_site_verification: # enter Google site verification code
     baidu_analytics: # enter Baidu Analytics hash key
 

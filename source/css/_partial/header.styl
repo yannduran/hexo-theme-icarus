@@ -1,196 +1,500 @@
 #header
-    @extend $block
-    background: white
-    position: relative
-    a, a:visited
-        white-space: nowrap
-        transition: 0.2s ease
-        color: color-default
-    a:hover
-        color: color-link
+  height: banner-height
+  position: relative
+  border-bottom: 1px solid color-border
+  &:before, &:after
+    content: ""
+    position: absolute
+    left: 0
+    right: 0
+    height: 40px
+  &:before
+    top: 0
+    background: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
+  &:after
+    bottom: 0
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.2))
+  #sub-nav .social
+    float: none
 
-$header-block
-    height: logo-height
-    line-height: logo-height
-    padding: ((header-height - logo-height)/2) 15px
+#header-outer
+  height: 100%
+  position: relative
 
-$header-block-left
-    float: left
+#header-inner
+  position: relative
+  overflow: hidden
 
-$header-block-right
-    float: right
-
-.header-inner
-    height: 100%
-    position: relative
-    #logo
-        @extend $header-block
-        @extend $header-block-left
-        display: inline-block
-        .logo
-            margin-right: 5px
-            display: inline-block
-        .site-title
-            font-size: 16px
-            display: inline-block
-            vertical-align: top
-            font-weight: 600
+#banner
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: url(banner-url) center #000
+  background-size: cover
+  z-index: -1
 
 #header-title
-    text-align: center
-    height: logo-height
-    position: absolute
-    top: 50%
-    left: 0
-    margin-top: logo-height * -0.5
+  text-align: center
+  height: title-size
+  position: absolute
+  top: 50%
+  left: 0
+  margin-top: title-size * -0.5  // logo-size?
 
-.header-sub
-    border-top: 1px solid color-border
-    ul
-        clearfix()
-        margin: 0 15px
-        li
-            float: left
-            margin: 0 10px
-            a
-                display: inline-block
-                line-height: header-sub-height
-    .main-nav-link
-        display: inline-block
-        line-height: header-sub-height
+$title-text
+  text-decoration: none
+  color: #fff
+  font-weight: 300
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5)
 
-#header-sub
-    @media mq-mobile
-        display: none
-    @media mq-mini
-        display: none
+#title
+  @extend $title-text
+  font-size: title-size
+  line-height: title-size
+  letter-spacing: 2px
+
+#subtitle
+  @extend $title-text
+  font-size: subtitle-size
+  line-height: subtitle-size
+  letter-spacing: 1px
+
+#subtitle-wrap
+  margin-top: subtitle-size
 
 #main-nav
-    @extend $header-block
-    @extend $header-block-left
-    @media mq-mobile
-        display: none
-    @media mq-mini
-        display: none
-
-#main-nav-mobile
-    @media mq-tablet
-        display: none
-    @media mq-normal
-        display: none
-
+//  background-color: #7E57C2
+  float: left
+  margin-left: -15px
 
 $nav-link
-    float: left
-    display: block
-    padding: 0 15px
-
+  float: left
+  color: color-luminous
+  opacity: 0.8
+  font-size: subtitle-size + 3
+  font-weight: 500
+  text-decoration: none
+  text-shadow: 0 1px rgba(0, 0, 0, 0.5)
+  transition: opacity 0.2s
+  display: block
+  padding: 20px 15px
+  &:hover
+    text-shadow: 0 1px white
 .nav-icon
-    @extend $nav-link
-    text-align: center
-    font-size: font-size
-    width: font-size
-    height: font-size
-    position: relative
-    cursor: pointer
-    height: logo-height !important
-    line-height: logo-height !important
+  @extend $nav-link
+  font-family: font-icon
+  text-align: center
+  font-size: font-size + 5
+  width: font-size +5
+  height: font-size + 5
+  padding: 20px 15px
+  position: relative
+  cursor: pointer
 
 .main-nav-link
-    @extend $nav-link
-    font-weight: 300
+  @extend $nav-link
+  letter-spacing: 1px
+  @media mq-mobile
+    display: none
+
+#main-nav-toggle
+  display: none
+  &:before
+    content: "\f0c9"
+  @media mq-mobile
+    display: block
 
 #sub-nav
-    @media mq-normal
-        display: none
-    @extend $header-block
-    @extend $header-block-right
-    #profile-nav
-        #profile-anchor
-            clearfix()
-            display: block
-            height: logo-height
-            line-height: logo-height
-        .avatar, .fa
-            float: left
-        .avatar
-            width: logo-height
-            height: logo-height
-            margin-right: 8px
-        .fa
-            line-height: logo-height
+  float: right
+  margin-right: -15px
 
+#nav-rss-link
+  &:before
+    content: "\f09e"
+#nav-twitter-link
+  &:before
+    content: "\f099"
+#nav-linkedin-link
+  &:before
+    content: "\f0e1"
+#nav-googleplus-link
+  &:before
+    content: "\f0d5"
+#nav-github-link
+  &:before
+    content: "\f113"
+#nav-search-btn
+  &:before
+    content: "\f002"
+
+#sub-nav .social
+  float: left
+  margin-right: 15px
+
+@media screen and (undefined: 1040px)
+  #sub-nav .social
+    float: none
+    margin-right: 0
+
+  #sub-nav .social a:last-of-type
+    margin-right: 0
+
+#sub-nav .social a
+  -webkit-border-radius: 50%
+  border-radius: 50%
+  display: -moz-inline-stack
+  display: inline-block
+  vertical-align: middle
+  *vertical-align: auto
+  zoom: 1
+  *display: inline
+  text-indent: -9999px
+  margin: 0 15px 15px 0
+  opacity: 0.5
+  width: 28px
+  height: 28px
+  -webkit-transition: 0.3s
+  -moz-transition: 0.3s
+  -o-transition: 0.3s
+  -ms-transition: 0.3s
+  transition: 0.3s
+
+#sub-nav .social a:hover
+  opacity: 1
+  -ms-filter: none
+  filter: none
+
+// facebook
+#sub-nav .social a.facebook
+  background: url("/imgs/social/facebook.png") center no-repeat #3b5998
+  border: 1px solid #3b5998
+
+#sub-nav .social a.facebook:hover
+  border: 1px solid #355089
+
+// google
+#sub-nav .social a.google
+  background: url("/imgs/social/google.png") center no-repeat #c83d20
+  border: 1px solid #c83d20
+
+#sub-nav .social a.google:hover
+  border: 1px solid #b4371d
+
+//twitter
+#sub-nav .social a.twitter
+  background: url("/imgs/social/twitter.png") center no-repeat #55cff8
+  border: 1px solid #55cff8
+
+#sub-nav .social a.twitter:hover
+  border: 1px solid #35c6f7
+
+//github
+#sub-nav .social a.github
+  background: url("/imgs/social/github.png") center no-repeat #afb6ca
+  border: 1px solid #afb6ca
+
+#sub-nav .social a.github:hover
+  border: 1px solid #98a1bb
+
+//coderwall
+#sub-nav .social a.coderwall
+  background: url("/imgs/social/coderwall.png") center no-repeat #3e8dcc
+  border: 1px solid #3e8dcc
+
+#sub-nav .social a.coderwall:hover
+  border: 1px solid #3280bd
+
+// stackoverflow
+#sub-nav .social a.stackoverflow
+  background: url("/imgs/social/stackoverflow.png") center no-repeat #ef7522
+  border: 1px solid #ef7522
+
+#sub-nav .social a.stackoverflow:hover
+  border: 1px solid #cc7a00
+
+//linkedin
+#sub-nav .social a.linkedin
+  background: url("/imgs/social/linkedin.png") center no-repeat #005a87
+  border: 1px solid #005a87
+
+// pinterest
+#sub-nav .social a.pinterest
+  background: url("/imgs/social/pinterest.png") center no-repeat #be4037
+  border: 1px solid #be4037
+
+#sub-nav .social a.pinterest:hover
+  border: 1px solid #ab3a31
+
+//delicious
+#sub-nav .social a.delicious
+  background: url("/imgs/social/delicious.png") center no-repeat #3271cb
+  border: 1px solid #3271cb
+
+#sub-nav .social a.delicious:hover
+  border: 1px solid #2d66b7
+
+//pinboard
+#sub-nav .social a.pinboard
+  background: url("/imgs/social/pinboard.png") center no-repeat #0066c8
+  border: 1px solid #3a729f
+
+#sub-nav .social a.pinboard:hover
+  border: 1px solid #005ce6
+
+// rss
+#sub-nav .social a.rss
+  background: url("/imgs/social/rss.png") center no-repeat #ef7522
+  border: 1px solid #ef7522
+
+#sub-nav .social a.rss:hover
+  border: 1px solid #e56711
+
+// search
 #search-form-wrap
-    @media mq-mini
-        display: none
-    @extend $header-block
-    @extend $header-block-right
-    .search-form
-        position: relative
-        .search-form-input
-            width: 100%
-            padding: 0 30px 0 15px
-            line-height: logo-height
-            height: logo-height !important
-            border-radius: ((logo-height + 2)/2)
-            &::-webkit-search-results-decoration
-            &::-webkit-search-cancel-button
-                -webkit-appearance: none
-        .search-form-submit
-            top: 50%
-            right: 15px
-            border: none
-            cursor: pointer
-            margin-top: -7px
-            background: none
-            position: absolute
-            font: 13px font-icon
-            font-family: 'FontAwesome'
-            &:before
-                content: '\f002'
-            &:hover, &:focus
-                color: #777
+  position: absolute
+  top: 15px
+  width: 150px
+  height: 30px
+  right: -150px
+  opacity: 0
+  transition: 0.2s ease-out
+  &.on
+    opacity: 1
+    right: 0
+  @media mq-mobile
+    width: 100%
+    right: -100%
 
-.search-form-input,
-.search-form-input.ins-search-input,
-.search-form-input.st-ui-search-input,
-.search-form-input.st-default-search-input
-    -webkit-appearance: textarea
-    appearance: textarea
-    padding: 0
-    width: 200px
-    box-shadow: none
-    color: color-default
-    transition: 0.2s ease
-    box-sizing: border-box
-    height: auto !important
-    line-height: line-height
-    outline: none !important
-    background: none !important
-    font: font-size font-sans
-    border: 1px solid color-border !important
-    &:focus
-        border-color: color-link !important
-    &::-webkit-search-results-decoration
-    &::-webkit-search-cancel-button
-        -webkit-appearance: none
+.search-form
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  background: #fff
+  padding: 5px 15px
+  border-radius: 15px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
 
-#main-nav-mobile
-    overflow-y: hidden
-    overflow-x: auto
-    .menu
-        clearfix()
-        margin: 0
-        height: header-sub-height
-        .search-form-input
-            display: none
-            @media mq-mini
-                display: block
-            padding: 0 10px
-            margin-right: 15px
-            height: header-sub-height - 16
-            line-height: header-sub-height - 16
-            border-radius: ((header-sub-height - 16)/2)
-            &::-webkit-search-results-decoration
-            &::-webkit-search-cancel-button
-                -webkit-appearance: none
+.search-form-input
+  border: none
+  background: none
+  color: color-default
+  width: 100%
+  font: 13px font-sans
+  outline: none
+  &::-webkit-search-results-decoration
+  &::-webkit-search-cancel-button
+    -webkit-appearance: none
+
+.search-form-submit
+  position: absolute
+  top: 50%
+  right: 10px
+  margin-top: -7px
+  font: 13px font-icon
+  border: none
+  background: none
+  color: #bbb
+  cursor: pointer
+  &:hover, &:focus
+    color: #777
+
+
+//#header
+//    @extend $block
+//    background: white
+//    position: relative
+//    a, a:visited
+//        white-space: nowrap
+//        transition: 0.2s ease
+//        color: color-default
+//    a:hover
+//        color: color-link
+//
+//$header-block
+//    height: logo-height
+//    line-height: logo-height
+//    padding: ((header-height - logo-height)/2) 15px
+//
+//$header-block-left
+//    float: left
+//
+//$header-block-right
+//    float: right
+//
+//.header-inner
+//    height: 100%
+//    position: relative
+//    #logo
+//        @extend $header-block
+//        @extend $header-block-left
+//        display: inline-block
+//        .logo
+//            margin-right: 5px
+//            display: inline-block
+//        .site-title
+//            font-size: 16px
+//            display: inline-block
+//            vertical-align: top
+//            font-weight: 600
+//
+//#header-title
+//    text-align: center
+//    height: logo-height
+//    position: absolute
+//    top: 50%
+//    left: 0
+//    margin-top: logo-height * -0.5
+//
+//.header-sub
+//    border-top: 1px solid color-border
+//    ul
+//        clearfix()
+//        margin: 0 15px
+//        li
+//            float: left
+//            margin: 0 10px
+//            a
+//                display: inline-block
+//                line-height: header-sub-height
+//    .main-nav-link
+//        display: inline-block
+//        line-height: header-sub-height
+//
+//#header-sub
+//    @media mq-mobile
+//        display: none
+//    @media mq-mini
+//        display: none
+//
+//#main-nav
+//    @extend $header-block
+//    @extend $header-block-left
+//    @media mq-mobile
+//        display: none
+//    @media mq-mini
+//        display: none
+//
+//#main-nav-mobile
+//    @media mq-tablet
+//        display: none
+//    @media mq-normal
+//        display: none
+//
+//
+//$nav-link
+//    float: left
+//    display: block
+//    padding: 0 15px
+//
+//.nav-icon
+//    @extend $nav-link
+//    text-align: center
+//    font-size: font-size
+//    width: font-size
+//    height: font-size
+//    position: relative
+//    cursor: pointer
+//    height: logo-height !important
+//    line-height: logo-height !important
+//
+//.main-nav-link
+//    @extend $nav-link
+//    font-weight: 300
+//
+//#sub-nav
+//    @media mq-normal
+//        display: none
+//    @extend $header-block
+//    @extend $header-block-right
+//    #profile-nav
+//        #profile-anchor
+//            clearfix()
+//            display: block
+//            height: logo-height
+//            line-height: logo-height
+//        .avatar, .fa
+//            float: left
+//        .avatar
+//            width: logo-height
+//            height: logo-height
+//            margin-right: 8px
+//        .fa
+//            line-height: logo-height
+//
+//#search-form-wrap
+//    @media mq-mini
+//        display: none
+//    @extend $header-block
+//    @extend $header-block-right
+//    .search-form
+//        position: relative
+//        .search-form-input
+//            width: 100%
+//            padding: 0 30px 0 15px
+//            line-height: logo-height
+//            height: logo-height !important
+//            border-radius: ((logo-height + 2)/2)
+//            &::-webkit-search-results-decoration
+//            &::-webkit-search-cancel-button
+//                -webkit-appearance: none
+//        .search-form-submit
+//            top: 50%
+//            right: 15px
+//            border: none
+//            cursor: pointer
+//            margin-top: -7px
+//            background: none
+//            position: absolute
+//            font: 13px font-icon
+//            font-family: 'FontAwesome'
+//            &:before
+//                content: '\f002'
+//            &:hover, &:focus
+//                color: #777
+//
+//.search-form-input,
+//.search-form-input.ins-search-input,
+//.search-form-input.st-ui-search-input,
+//.search-form-input.st-default-search-input
+//    -webkit-appearance: textarea
+//    appearance: textarea
+//    padding: 0
+//    width: 200px
+//    box-shadow: none
+//    color: color-default
+//    transition: 0.2s ease
+//    box-sizing: border-box
+//    height: auto !important
+//    line-height: line-height
+//    outline: none !important
+//    background: none !important
+//    font: font-size font-sans
+//    border: 1px solid color-border !important
+//    &:focus
+//        border-color: color-link !important
+//    &::-webkit-search-results-decoration
+//    &::-webkit-search-cancel-button
+//        -webkit-appearance: none
+//
+//#main-nav-mobile
+//    overflow-y: hidden
+//    overflow-x: auto
+//    .menu
+//        clearfix()
+//        margin: 0
+//        height: header-sub-height
+//        .search-form-input
+//            display: none
+//            @media mq-mini
+//                display: block
+//            padding: 0 10px
+//            margin-right: 15px
+//            height: header-sub-height - 16
+//            line-height: header-sub-height - 16
+//            border-radius: ((header-sub-height - 16)/2)
+//            &::-webkit-search-results-decoration
+//            &::-webkit-search-cancel-button
+//                -webkit-appearance: none

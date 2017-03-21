@@ -1,8 +1,49 @@
 <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <h1 id="title-wrap">
+                <a href="<%- url_for() %>" id="title"><%= config.title %></a>
+            </h1>
+            <% if (theme.subtitle){ %>
+            <h2 id="subtitle-wrap">
+                <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle %></a>
+            </h2>
+            <% } %>
+        </div>
+        <div id="header-inner" class="inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                <% for (var i in theme.menu){ %>
+                <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+                <% } %>
+            </nav>
+            <nav id="sub-nav">
+                <!--
+                <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/<%- theme.twitter %>" target="_blank"></a>
+                <a id="nav-linkedin-link" class="nav-icon" href="https://au.linkedin.com/in/<%- theme.linkedin %>" target="_blank"></a>
+                <a id="nav-github-link" class="nav-icon" href="https://github.com/<%- theme.github %>" target="_blank"></a>
+                <a id="nav-stackoverflow-link" class="nav-icon" href="https://stackoverflow.com/<%- theme.stackoverflow %>" target="_blank"></a>
+                <a id="nav-googleplus-link" class="nav-icon" href="https://plus.google.com/117080433375668558463" target="_blank"></a>
+                -->
+                <% if (theme.rss){ %>
+                <a id="nav-rss-link" class="nav-icon" href="<%- theme.rss %>" title="RSS Feed"></a>
+                <% } %>
+                <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+            </nav>
+            <div id="search-form-wrap">
+                <%- search_form({button: '&#xF002;'}) %>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!--<header id="header">
     <div id="header-main" class="header-inner">
         <div class="outer">
             <a href="<%- url_for() %>" id="logo">
-                <%- (theme.customize.logo && theme.customize.logo.enabled ? '<i class="logo"></i>':'') %>
+                <%- (theme.logo && theme.logo.enabled ? '<i class="logo"></i>':'') %>
                 <span class="site-title"><%= config.title %></span>
             </a>
             <nav id="main-nav">
@@ -10,8 +51,8 @@
                     <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
                 <% } %>
             </nav>
-            <% if(theme.customize.profile && theme.customize.profile.enabled) { %>
-                <% var profile = theme.customize.profile; %>
+            <% if(theme.profile && theme.profile.enabled) { %>
+                <% var profile = theme.profile; %>
                 <nav id="sub-nav">
                     <div class="profile" id="profile-nav">
                         <a id="profile-anchor" href="javascript:;">
@@ -36,4 +77,4 @@
             </tr>
         </table>
     </div>
-</header>
+</header>-->
