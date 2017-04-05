@@ -17,13 +17,11 @@
 
 .article-title
     font-size: 2em
-    color: color-default
+    color: color-link
     text-decoration: none
     line-height: line-height-title
-    a&:visited
-        color: color-default
     a&:hover
-        color: color-link
+        text-decoration: underline
     @media mq-mini
         font-size: 1.6em
     @media mq-mobile
@@ -39,8 +37,10 @@
         .fa
             margin-right: 3px
     a
-        color: color-default
+        color: color-link
         &:hover
+            color: color-link
+        &:visited
             color: color-link
 
 .article-category
@@ -51,7 +51,7 @@
     .tag-link
         &:before
             content: "#"
-	    font-size: font-size-small
+        font-size: font-size-small
 
 .article-entry
     @extend $base-style
