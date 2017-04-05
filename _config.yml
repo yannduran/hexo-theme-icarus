@@ -7,58 +7,78 @@ menu:
   About: about
 
 logo:
-    enabled: true
-    width: 40
-    height: 40
-    url: images/logo.jpg
-banner: images/banner.jpg
-profile:
-    enabled: true # Whether to show profile bar
-    avatar: images/logo.jpg
-    gravatar: yann@luminous-software.solutions # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
-    author: Yann Duran
-    author_position: Senior Software Developer
-    location: Melbourne, Australia
-    follow: https://github.com/luminous-software
-highlight: monokai
-sidebar: right # options: left, right
-thumbnail: false # enable posts thumbnail, options: true, false
-favicon: /favicon.png # path to favicon
-social_links:
-    linkedin: https://www.linkedin.com/in/yannduran
-    github: http://github.com/yannduran
-    twitter: http://twitter.com/lumiinus
-    facebook: http://facebook.com/yannduran
-    stackoverflow: http://stackoverflow.com/users/281489
-#    dribbble: /
-    rss: /atom.xml
-social_link_tooltip: false
+    enabled: false
+    width: 48px
+    height: 72
+    url: /imgs/logo.png
 
-# Widgets
+banner: images/banner.jpg
+highlight: monokai
+sidebar: right # (left | right)
+thumbnail: false # enable post thumbnails, (true | false)
+
+profile:
+    enabled: true
+    follow: https://github.com/luminous-software
+    tool_tips:
+    posts: posts
+    post: post
+    tags: tags
+    tag: tag
+
+    author:
+        name: Yann Duran
+        title: Senior Software Developer
+        gravatar: #yann@luminous-software.solutions
+        avatar:
+        location: Melbourne, Australia
+        website: https://yannduran.com
+        email:
+        social:
+            linkedin: yannduran
+            facebook: yannduran
+            twitter: yannduran
+            github: yannduran
+            stackoverflow: 281489
+
+    company:
+        name: Luminous Software Solutions
+        website: https://luminous-software.solutions
+        email:
+        social:
+            linkedin:
+            facebook:
+            twitter: lumiinus
+            github: luminous-software
+social:
+    tooltip: false
+    links:
+        linkedin: https://www.linkedin.com/in/
+        facebook: https://facebook.com/
+        twitter: https://twitter.com/
+        github: https://github.com/
+        stackoverflow: https://stackoverflow.com/users/
+
 widgets:
     - recent_posts
+    - category
     - tagcloud
     - archive
-    - category
 #   - tag
 #   - links
 
-# Search
 search:
     insight: true # you need to install `hexo-generator-json-content` before using Insight Search
     swiftype: # enter swiftype install key here
     baidu: false # you need to disable other search engines to use Baidu search, options: true, false
 
-# Comments
 comments:
     disqus: luminous-software-blog # enter disqus shortname here
     duoshuo: # enter duoshuo shortname here
     youyan: # enter youyan uid here
 
-# Share
 share: default # options: jiathis, bdshare, addtoany, default
 
-# Plugins
 plugins:
     lightgallery: true
     justifiedgallery: true
@@ -66,7 +86,6 @@ plugins:
     google_site_verification: # enter Google site verification code
     baidu_analytics: # enter Baidu Analytics hash key
 
-# Miscellaneous
 miscellaneous:
     open_graph: # see http://ogp.me
         fb_app_id:
