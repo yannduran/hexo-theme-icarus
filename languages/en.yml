@@ -11,12 +11,12 @@ nav:
     older: 'Older'
     newer: 'Newer'
 widget:
-    recents: 'recent'
+    recents: 'recent posts'
     archives: 'archives'
     categories: 'categories'
     links: 'links'
     tags: 'tags'
-    tag_cloud: 'tag cloud'
+    tag_cloud: 'tags'
 article:
     more: 'Read More'
     comments: 'Comments'
