@@ -1,13 +1,13 @@
-(function($){
+(function ($) {
     var toTop = ($('#sidebar').height() - $(window).height()) + 60;
     // Caption
-    $('.article-entry').each(function(i) {
-        $(this).find('img').each(function() {
+    $('.article-entry').each(function (i) {
+        $(this).find('img').each(function () {
             if (this.alt && !(!!$.prototype.justifiedGallery && $(this).parent('.justified-gallery').length)) {
                 $(this).after('<span class="caption">' + this.alt + '</span>');
             }
 
-            // 对于已经包含在链接内的图片不适用lightGallery
+            // lightGallery
             if ($(this).parent().prop("tagName") !== 'A') {
                 $(this).wrap('<a href="' + this.src + '" title="' + this.alt + '" class="gallery-item"></a>');
             }
@@ -17,7 +17,7 @@
         var options = {
             selector: '.gallery-item',
         };
-        $('.article-entry').each(function(i, entry) {
+        $('.article-entry').each(function (i, entry) {
             lightGallery(entry, options);
         });
         lightGallery($('.article-gallery')[0], options);
@@ -45,7 +45,7 @@
     if ($('#sidebar').length) {
         $(document).on('scroll', function () {
             if ($(document).width() >= 800) {
-                if(($(this).scrollTop() > toTop) && ($(this).scrollTop() > 0)) {
+                if (($(this).scrollTop() > toTop) && ($(this).scrollTop() > 0)) {
                     $('#toTop').fadeIn();
                     $('#toTop').css('left', $('#sidebar').offset().left);
                 } else {
