@@ -1,52 +1,65 @@
-<% var profile = theme.profile; %>
 <% var tagCount = site.tags.filter(function(tag) { return tag.length; }).length; %>
+
+<% var author = theme.profile.author; %>
+<% var authorSocial = author.social; %>
+<% var socialLinks = theme.social.links; %>
+<% var profileGravatar= author.gravatar; %>
+<% var profileAvatar= author.avatar; %>
+<% var hasAvatar = (profileGravatar || profileAvatar); %>
+
 <aside id="profile">
     <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="<%= ( profile.gravatar ? gravatar(profile.gravatar, 128) : url_for(profile.avatar)) %>" />
-            <h2 id="name"><%= profile.author %></h2>
-            <h3 id="position"><%= profile.author_position %></h3>
-            <span id="location"><i class="fa fa-map-marker"></i><%= profile.location %></span>
+        <div class="profile-block base-info">
+            <% if (hasAvatar) { %>
+            <img id="avatar" src="<%= ( profileGravatar ? gravatar(profileGravatar, 128) : url_for(profileAvatar)) %>" />
+            <% } %>
+
+            <h2 id="name"><%= author.name %></h2>
+            <h3 id="position"><%= author.title %></h3>
+
+            <% if (author.location) { %>
+            <span id="location"><i class="fa fa-map-marker"></i><%= author.location %></span>
+            <% } %>
         </div>
-        <div class="article-info profile-block">
+
+        <div class="profile-block article-info">
             <div class="article-info-block">
                 <%= site.posts.length %>
                 <span><%= (site.posts.length > 1 ? __('profile.posts') : __('profile.post')) %></span>
             </div>
+
             <div class="article-info-block">
                 <%= tagCount %>
                 <span><%= (tagCount > 1 ? __('profile.tags') : __('profile.tag')) %></span>
             </div>
         </div>
-        <% if(theme.social_links) { %>
+
+        <% if(authorSocial) { %>
         <div class="profile-block social-links">
             <table>
                 <tr>
-                    <% var tooltipClass = theme.social_link_tooltip === false ? '' : 'class=tooltip'; %>
-                    <% for(var i in theme.social_links) { %>
+                    <% var tooltipClass = theme.social.tooltip === false ? '' : 'class=tooltip'; %>
+
+                    <% for(var i in authorSocial) { %>
+                    <% if (authorSocial[i]) { %>
                     <td>
-                        <a href="<%- url_for(theme.social_links[i]) %>" target="_blank" title="<%= i %>" <%= tooltipClass %>>
+                        <a href="<%- url_for(socialLinks[i] + authorSocial[i]) %>" target="_blank" title="<%= i %>" <%= tooltipClass %>>
                             <i class="fa fa-<%= i %>"></i>
                         </a>
                     </td>
+                    <% } %>
                     <% } %>
                 </tr>
             </table>
         </div>
         <% } %>
-        <div class="bio">
-            <!--
-            <a href="http://stackoverflow.com/users/281489/yann-duran">
-                <img src="http://stackoverflow.com/users/flair/281489.png?theme=clean" width="208" height="58"
-                     alt="profile for Yann Duran at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
-                     title="profile for Yann Duran at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+
+        <div class="profile-block">
+            <a href="<%-theme.social.links['stackoverflow'] %><%- theme.profile.author.social.stackoverflow %>" target="_blank">
+                <img src="<%-theme.social.links['stackoverflow'] %>flair/<%- theme.profile.author.social.stackoverflow %>.png?theme=clean" width="208" height="58"
+                     alt="Stack Overflow profile for <%- theme.profile.author.name %>"
+                     title="Stack Overflow profile for <%- theme.profile.author.name %>">
             </a>
-            <a href="https://stackexchange.com/users/105500">
-                <img src="https://stackexchange.com/users/flair/105500.png?theme=clean" width="208" height="58"
-                     alt="profile for Yann Duran on Stack Exchange, a network of free, community-driven Q&amp;A sites"
-                     title="profile for Yann Duran on Stack Exchange, a network of free, community-driven Q&amp;A sites">
-            </a>
-            -->
         </div>
     </div>
 </aside>
