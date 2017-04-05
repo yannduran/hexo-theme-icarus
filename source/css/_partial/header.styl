@@ -1,5 +1,5 @@
 #header
-  height: banner-height
+  height: header-height
   position: relative
   border-bottom: 1px solid color-border
   &:before, &:after
@@ -41,13 +41,14 @@
   position: absolute
   top: 50%
   left: 0
-  margin-top: title-size * -0.5  // logo-size?
+  margin-top: title-size * -0.5
+  width:100%
 
 $title-text
   text-decoration: none
   color: #fff
   font-weight: 300
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5)
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9)
 
 #title
   @extend $title-text
@@ -64,10 +65,13 @@ $title-text
 #subtitle-wrap
   margin-top: subtitle-size
 
+#logo
+  margin-top: subtitle-size
+  height: logo-height
+
 #main-nav
-//  background-color: #7E57C2
   float: left
-  margin-left: -15px
+  margin-left: -1 * gutter-width
 
 $nav-link
   float: left
@@ -81,13 +85,16 @@ $nav-link
   display: block
   padding: 20px 15px
   &:hover
-    text-shadow: 0 1px white
+    text-shadow: 0 1px color-link-shadow
+  &:visited
+    color color-link-visited
+
 .nav-icon
   @extend $nav-link
   font-family: font-icon
   text-align: center
-  font-size: font-size + 5
-  width: font-size +5
+  font-size: font-size + 4
+  width: font-size + 5
   height: font-size + 5
   padding: 20px 15px
   position: relative
@@ -108,23 +115,28 @@ $nav-link
 
 #sub-nav
   float: right
-  margin-right: -15px
+  margin-right: gutter-width
 
 #nav-rss-link
   &:before
     content: "\f09e"
-#nav-twitter-link
-  &:before
-    content: "\f099"
+
 #nav-linkedin-link
   &:before
     content: "\f0e1"
-#nav-googleplus-link
+
+#nav-twitter-link
   &:before
-    content: "\f0d5"
+    content: "\f099"
+
 #nav-github-link
   &:before
     content: "\f113"
+
+#nav-googleplus-link
+  &:before
+    content: "\f0d5"
+
 #nav-search-btn
   &:before
     content: "\f002"
