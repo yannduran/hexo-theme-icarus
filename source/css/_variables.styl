@@ -8,6 +8,9 @@ color-default = #555
 color-grey = #999
 color-border = #eceff2
 color-link = color-luminous + #333 //#38b7ea
+color-link-hover = color-luminous - #666
+color-link-visited = color-luminous
+color-link-shadow = color-luminous + #666
 color-background = #f5f8f9
 color-sidebar-text = #777
 color-sidebar-text-dark = #333
@@ -23,24 +26,19 @@ font-icon-path = "fonts/fontawesome-webfont"
 font-icon-version = "4.0.3"
 font-size = 14px
 font-size-small = 12px
+font-size-copyright = font-size - 0.5
+font-size-powered-by = font-size-copyright - 1
 line-height = 1.6em
 line-height-title = 1.3em
 
 // Header
-logo-size = 48px
-logo-margin = 48px
-logo-url = "images/logo.png"
-title-size = 48px
-subtitle-size = 16px
 banner-height = 300px
 banner-url = "images/banner.jpg"
-
-header-height = 300px //64px
+header-height = banner-height
 header-sub-height = 48px
-//logo-url = hexo-config("logo.url")
-//logo-width = 0px + hexo-config("logo.width")
-//logo-height = 0px + hexo-config("logo.height")
-//
+title-size = 48px
+subtitle-size = 16px
+logo-height = 72px
 
 // Sidebar
 sidebar = hexo-config("sidebar")
@@ -54,9 +52,9 @@ profile-avatar-size = 128px
 block-margin = 30px
 article-padding = 20px
 mobile-nav-width = 280px
-profile-column = 3
-main-column = 7
-sidebar-column = 3
+profile-column = 2.75
+main-column = 8
+sidebar-column = 2.75
 sidebar-column-tablet = 4
 
 if profile
@@ -72,6 +70,7 @@ else
 // Grids
 column-width = 80px
 gutter-width = 15px
+
 if _sidebar-column is 0 and _profile-column is 0
     columns = 10
     main-column = 10
