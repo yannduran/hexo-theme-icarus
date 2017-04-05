@@ -1,8 +1,12 @@
 <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            <div class="copyright">
+                &copy; <%= date(new Date(), 'YYYY') %> <a href="<%= theme.profile.company.website %>" target="_blank"><%= theme.profile.company.name %></a>
+            </div>
+            <div class="powered-by">
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            </div>
         </div>
     </div>
 </footer>
